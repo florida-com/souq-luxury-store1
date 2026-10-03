@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: souq-luxury-store
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: ADMIN_PIN
+        sync: false
+    disk:
+      name: souq-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
